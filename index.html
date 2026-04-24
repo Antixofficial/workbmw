@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Акція BMW M760Li</title>
+  <meta name="description" content="Купуй ароматизатор в авто за $2 — отримуй номер замовлення та подарунок від компанії." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=4" />
+</head>
+<body>
+
+  <!-- ====== HEADER ====== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav">
+      <a href="#hero" class="brand">
+        <div>
+          <span>Акція BMW M760Li</span>
+        </div>
+      </a>
+
+      <nav class="nav__links" id="navLinks">
+        <a href="#about" class="nav-link" data-uk="Про акцію" data-en="About">Про акцію</a>
+        <a href="#how" class="nav-link" data-uk="Як це працює" data-en="How it works">Як це працює</a>
+        <a href="#gallery" class="nav-link" data-uk="Галерея" data-en="Gallery">Галерея</a>
+        <a href="#participants" class="nav-link" data-uk="Покупці" data-en="Buyers">Покупці</a>
+        <a href="#faq" class="nav-link" data-uk="FAQ" data-en="FAQ">FAQ</a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="lang-btn" id="langBtn">EN</button>
+        
+        <a href="#order" class="btn btn--primary nav-cta" data-uk="Замовити" data-en="Order">Замовити</a>
+        <button class="burger" id="burgerBtn" aria-label="Меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile nav -->
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#about" class="nav-link mobile-link" data-uk="Про акцію" data-en="About">Про акцію</a>
+      <a href="#how" class="nav-link mobile-link" data-uk="Як це працює" data-en="How it works">Як це працює</a>
+      <a href="#gallery" class="nav-link mobile-link" data-uk="Галерея" data-en="Gallery">Галерея</a>
+      <a href="#participants" class="nav-link mobile-link" data-uk="Покупці" data-en="Buyers">Покупці</a>
+      <a href="#faq" class="nav-link mobile-link" data-uk="FAQ" data-en="FAQ">FAQ</a>
+      <a href="#order" class="btn btn--primary mobile-link" data-uk="Замовити" data-en="Order">Замовити</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ====== HERO з відео ====== -->
+    <section class="hero" id="hero">
+      <div class="hero__media">
+        <!--
+          ВІДЕО: файл assets/hero-video.mov
+          Браузер автоматично вибере підтримуваний формат.
+          Для кращої сумісності конвертуйте .MOV → .mp4 (H.264):
+          ffmpeg -i hero-video.mov -vcodec h264 -acodec aac hero-video.mp4
+        -->
+        <video
+          class="hero__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="assets/hero-rear.png"
+        >
+          <source src="assets/hero-video.mov" type="video/mp4" />
+          <source src="assets/hero-video.mov" type="video/quicktime" />
+          <!-- Fallback: якщо відео не грає — показується poster -->
+        </video>
+        <div class="hero__overlay"></div>
+      </div>
+
+      <div class="container hero__content">
+        <div class="hero__left reveal">
+          <span class="eyebrow" data-uk="Онлайн-акція • WayForPay" data-en="Online Promo • WayForPay">Онлайн-акція • WayForPay</span>
+          <h1>
+            <span class="h1-word" data-uk="ОТРИМАЙ&nbsp;" data-en="GET&nbsp;">ОТРИМАЙ&nbsp;</span><span class="h1-accent" data-uk="BMW M760Li" data-en="BMW M760Li">BMW M760Li</span><span class="h1-word" data-uk="&nbsp;ЗА&nbsp;" data-en="&nbsp;FOR&nbsp;">&nbsp;ЗА&nbsp;</span><span class="h1-price">$2</span>
+          </h1>
+          <p class="hero__text" data-uk="Купи ароматизатор в авто — отримай унікальний номер замовлення та подарунок від компанії" data-en="Buy a car air freshener — get a unique order number and a gift from our company">
+            Купи ароматизатор в авто — отримай унікальний номер замовлення та подарунок від компанії
+          </p>
+
+          <div class="hero__actions">
+            <a href="#order" class="btn btn--primary btn--lg" data-uk="🛒 Замовити" data-en="🛒 Order">🛒 Замовити</a>
+            <a href="#how" class="btn btn--ghost btn--lg" data-uk="Як це працює" data-en="How it works">Як це працює</a>
+          </div>
+
+          <div class="hero__stats">
+            <article>
+              <strong>$2</strong>
+              <span data-uk="ціна 1 ароматизатора" data-en="price per freshener">ціна 1 ароматизатора</span>
+            </article>
+            <article>
+              <strong>1 = 1</strong>
+              <span data-uk="1 ароматизатор = 1 замовлення" data-en="1 freshener = 1 order number">1 ароматизатор = 1 замовлення</span>
+            </article>
+            <article>
+              <strong id="heroCount">0</strong>
+              <span data-uk="покупців" data-en="buyers">покупців</span>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__scroll-hint">
+        <div class="scroll-chevron"></div>
+      </div>
+    </section>
+
+    <!-- ====== ПРО АКЦІЮ ====== -->
+    <section class="section" id="about">
+      <div class="container grid-two">
+        <div class="reveal">
+          <span class="section__eyebrow" data-uk="Про акцію" data-en="About">Про акцію</span>
+          <h2 class="section__title" data-uk="Купуй ароматизатор — отримай подарунок від компанії" data-en="Buy a freshener — get a gift from our company">Купуй ароматизатор — отримай подарунок від компанії</h2>
+          <p class="section__text" data-uk="Простий та прозорий механізм: купуєш ароматизатор за $2, отримуєш унікальний номер замовлення. Після завершення акції компанія оголошує обраного покупця онлайн." data-en="Simple and transparent mechanism: buy an air freshener for $2, get a unique order number. After the promo ends, the company announces the selected buyer online.">
+            Простий та прозорий механізм: купуєш ароматизатор за $2, отримуєш унікальний номер замовлення. Після завершення акції компанія оголошує обраного покупця онлайн.
+          </p>
+          <ul class="check-list">
+            <li data-uk="🏆 BMW M760Li — головний подарунок" data-en="🏆 BMW M760Li — main gift">🏆 BMW M760Li — головний подарунок</li>
+            <li data-uk="📱 iPhone 17 Pro 1TB — 2-й подарунок" data-en="📱 iPhone 17 Pro 1TB — 2nd gift">📱 iPhone 17 Pro 1TB — 2-й подарунок</li>
+            <li data-uk="💵 20,000 грн — 3-й подарунок" data-en="💵 20,000 UAH — 3rd gift">💵 20,000 грн — 3-й подарунок</li>
+            <li data-uk="💵 10,000 грн — 4-й подарунок" data-en="💵 10,000 UAH — 4th gift">💵 10,000 грн — 4-й подарунок</li>
+          </ul>
+        </div>
+        <div class="feature-card reveal">
+          <img src="assets/bow-front2.jpg" alt="BMW M760Li" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== ПАКЕТИ ====== -->
+    <section class="section section--dark" id="pricing">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="section__eyebrow" data-uk="Пакети замовлення" data-en="Order packages">Пакети замовлення</span>
+          <h2 class="section__title" data-uk="Обери кількість ароматизаторів" data-en="Choose number of fresheners">Обери кількість ароматизаторів</h2>
+          <p class="section__text" data-uk="Ціна 1 ароматизатора — $2. Кількість ароматизаторів = кількість номерів замовлення." data-en="Price per freshener — $2. Number of fresheners = number of order numbers.">Ціна 1 ароматизатора — $2. Кількість ароматизаторів = кількість номерів замовлення.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="price-card reveal">
+            <p class="price-card__tag" data-uk="Start" data-en="Start">Start</p>
+            <h3 data-uk="1 ароматизатор" data-en="1 freshener">1 ароматизатор</h3>
+            <div class="price-card__price">$2</div>
+            <ul>
+              <li data-uk="1 номер замовлення" data-en="1 order number">1 номер замовлення</li>
+              <li data-uk="Миттєве підтвердження" data-en="Instant confirmation">Миттєве підтвердження</li>
+              <li data-uk="Показ номера на сайті" data-en="Number shown on site">Показ номера на сайті</li>
+            </ul>
+            <button class="btn btn--primary package-btn" data-qty="1" data-price="2" data-uk="Обрати" data-en="Choose">Обрати</button>
+          </article>
+
+          <article class="price-card price-card--featured reveal">
+            <p class="price-card__tag" data-uk="Popular 🔥" data-en="Popular 🔥">Popular 🔥</p>
+            <h3 data-uk="3 ароматизатори" data-en="3 fresheners">3 ароматизатори</h3>
+            <div class="price-card__price">$6</div>
+            <ul>
+              <li data-uk="3 номери замовлення" data-en="3 order numbers">3 номери замовлення</li>
+              <li data-uk="Вигідніше для охоплення" data-en="Better odds">Вигідніше для охоплення</li>
+              <li data-uk="Швидке оформлення" data-en="Quick checkout">Швидке оформлення</li>
+            </ul>
+            <button class="btn btn--primary package-btn" data-qty="3" data-price="6" data-uk="Обрати" data-en="Choose">Обрати</button>
+          </article>
+
+          <article class="price-card reveal">
+            <p class="price-card__tag" data-uk="Boost" data-en="Boost">Boost</p>
+            <h3 data-uk="5 ароматизаторів" data-en="5 fresheners">5 ароматизаторів</h3>
+            <div class="price-card__price">$10</div>
+            <ul>
+              <li data-uk="5 номерів замовлення" data-en="5 order numbers">5 номерів замовлення</li>
+              <li data-uk="Максимум замовлень" data-en="Maximum orders">Максимум замовлень</li>
+              <li data-uk="Зручно та вигідно" data-en="Convenient and profitable">Зручно та вигідно</li>
+            </ul>
+            <button class="btn btn--primary package-btn" data-qty="5" data-price="10" data-uk="Обрати" data-en="Choose">Обрати</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== ЯК ЦЕ ПРАЦЮЄ ====== -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="section__eyebrow" data-uk="Як це працює" data-en="How it works">Як це працює</span>
+          <h2 class="section__title" data-uk="Простий процес замовлення" data-en="Simple ordering process">Простий процес замовлення</h2>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card reveal">
+            <span>01</span>
+            <h3 data-uk="Обираєш кількість" data-en="Choose quantity">Обираєш кількість</h3>
+            <p data-uk="1, 3 або 5 ароматизаторів. Кількість ароматизаторів = кількість номерів замовлення." data-en="1, 3 or 5 fresheners. Number of fresheners = number of order numbers.">1, 3 або 5 ароматизаторів. Кількість ароматизаторів = кількість номерів замовлення.</p>
+          </article>
+          <article class="step-card reveal">
+            <span>02</span>
+            <h3 data-uk="Оплачуєш" data-en="Pay">Оплачуєш</h3>
+            <p data-uk="Карткою, Apple Pay або Google Pay через WayForPay." data-en="Card, Apple Pay or Google Pay via WayForPay.">Карткою, Apple Pay або Google Pay через WayForPay.</p>
+          </article>
+          <article class="step-card reveal">
+            <span>03</span>
+            <h3 data-uk="Отримуєш номер" data-en="Get your number">Отримуєш номер</h3>
+            <p data-uk="Унікальний номер замовлення відображається на сайті та зберігається в базі." data-en="Your unique order number is shown on the site and saved in the database.">Унікальний номер замовлення відображається на сайті та зберігається в базі.</p>
+          </article>
+          <article class="step-card reveal">
+            <span>04</span>
+            <h3 data-uk="Чекаєш оголошення" data-en="Await the announcement">Чекаєш оголошення</h3>
+            <p data-uk="Після завершення акції компанія оголошує обраного покупця онлайн. Прозоро та чесно." data-en="After the promo ends, the company announces the selected buyer online. Fair and transparent.">Після завершення акції компанія оголошує обраного покупця онлайн. Прозоро та чесно.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== ГАРАНТІЇ ====== -->
+    <section class="section section--dark" id="trust">
+      <div class="container trust-grid">
+        <article class="trust-card reveal">
+          <div class="trust-icon">🔒</div>
+          <h3 data-uk="100% Прозорість" data-en="100% Transparency">100% Прозорість</h3>
+          <p data-uk="Публічний список покупців, умови акції та автоматична видача номера замовлення після оплати." data-en="Public buyer list, promo terms and automatic order number issued after payment.">Публічний список покупців, умови акції та автоматична видача номера замовлення після оплати.</p>
+        </article>
+        <article class="trust-card reveal">
+          <div class="trust-icon">📡</div>
+          <h3 data-uk="Оголошення онлайн" data-en="Online Announcement">Оголошення онлайн</h3>
+          <p data-uk="Оголошення обраного покупця відбувається онлайн. Всі можуть спостерігати." data-en="Winner announcement happens online. Everyone can watch.">Оголошення обраного покупця відбувається онлайн. Всі можуть спостерігати.</p>
+        </article>
+        <article class="trust-card reveal">
+          <div class="trust-icon">🚗</div>
+          <h3 data-uk="Реальний BMW" data-en="Real BMW">Реальний BMW</h3>
+          <p data-uk="Автомобіль вже є і чекає свого покупця. Документи передаються публічно." data-en="The car already exists and awaits its new owner. Documents handed over publicly.">Автомобіль вже є і чекає свого покупця. Документи передаються публічно.</p>
+        </article>
+        <article class="trust-card reveal">
+          <div class="trust-icon">💳</div>
+          <h3 data-uk="Безпечна оплата" data-en="Secure Payment">Безпечна оплата</h3>
+          <p data-uk="WayForPay — ліцензований платіжний сервіс. Картка, Apple Pay, Google Pay." data-en="WayForPay — licensed payment service. Card, Apple Pay, Google Pay.">WayForPay — ліцензований платіжний сервіс. Картка, Apple Pay, Google Pay.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====== ГАЛЕРЕЯ з Lightbox ====== -->
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="section__eyebrow" data-uk="Галерея" data-en="Gallery">Галерея</span>
+          <h2 class="section__title" data-uk="Головний подарунок BMW M760Li" data-en="Main Gift BMW M760Li">Головний подарунок BMW M760Li</h2>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-item reveal" onclick="openLightbox('assets/bow-front.jpg')">
+            <img src="assets/bow-front.jpg" alt="BMW з червоним бантом" loading="lazy" />
+            <div class="gallery-overlay"><span>🔍</span></div>
+          </div>
+          <div class="gallery-item reveal" onclick="openLightbox('assets/detail-hood.jpg')">
+            <img src="assets/detail-hood.jpg" alt="Деталь капота BMW" loading="lazy" />
+            <div class="gallery-overlay"><span>🔍</span></div>
+          </div>
+          <div class="gallery-item reveal" onclick="openLightbox('assets/detail-headlight.jpg')">
+            <img src="assets/detail-headlight.jpg" alt="Фара BMW" loading="lazy" />
+            <div class="gallery-overlay"><span>🔍</span></div>
+          </div>
+          <div class="gallery-item reveal" onclick="openLightbox('assets/detail-rear.jpg')">
+            <img src="assets/detail-rear.jpg" alt="Задня частина BMW" loading="lazy" />
+            <div class="gallery-overlay"><span>🔍</span></div>
+          </div>
+          <div class="gallery-item reveal" onclick="openLightbox('assets/detail-badge.jpg')">
+            <img src="assets/detail-badge.jpg" alt="Значок BMW M760Li" loading="lazy" />
+            <div class="gallery-overlay"><span>🔍</span></div>
+          </div>
+          <div class="gallery-item reveal" onclick="openLightbox('assets/scene-child.jpg')">
+            <img src="assets/scene-child.jpg" alt="BMW M760Li" loading="lazy" />
+            <div class="gallery-overlay"><span>🔍</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== LIGHTBOX ====== -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <button class="lightbox__close" onclick="closeLightbox()">✕</button>
+      <img class="lightbox__img" id="lightboxImg" src="" alt="" />
+    </div>
+
+    <!-- ====== ФОРМА ЗАМОВЛЕННЯ (по центру) ====== -->
+    <section class="section section--dark" id="order">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="section__eyebrow" data-uk="Оформлення замовлення" data-en="Place your order">Оформлення замовлення</span>
+          <h2 class="section__title" data-uk="Форма замовлення" data-en="Order Form">Форма замовлення</h2>
+          <p class="section__text" data-uk="Заповни дані — отримаєш унікальний номер замовлення після оплати" data-en="Fill in your details — you'll get a unique order number after payment">Заповни дані — отримаєш унікальний номер замовлення після оплати</p>
+        </div>
+
+        <div class="order-center">
+          <form class="order-form reveal" id="orderForm" novalidate>
+            <div class="form-grid">
+              <label>
+                <span data-uk="Ім'я *" data-en="Name *">Ім'я *</span>
+                <input type="text" name="name" id="fname" placeholder="Іван Петренко" required />
+                <span class="field-error" id="err-name"></span>
+              </label>
+              <label>
+                <span data-uk="Телефон *" data-en="Phone *">Телефон *</span>
+                <input type="tel" name="phone" id="fphone" placeholder="+380XXXXXXXXX" required />
+                <span class="field-error" id="err-phone"></span>
+              </label>
+              <label>
+                <span data-uk="Email *" data-en="Email *">Email *</span>
+                <input type="email" name="email" id="femail" placeholder="example@gmail.com" required />
+                <span class="field-error" id="err-email"></span>
+              </label>
+              <label>
+                <span data-uk="Місто" data-en="City">Місто</span>
+                <input type="text" name="city" placeholder="Київ" />
+              </label>
+              <label>
+                <span data-uk="Номер замовлення" data-en="Order ID">Номер замовлення</span>
+                <input type="text" name="orderId" id="orderId" readonly />
+              </label>
+              <label>
+                <span data-uk="Кількість ароматизаторів" data-en="Number of fresheners">Кількість ароматизаторів</span>
+                <select name="tickets" id="tickets" required>
+                  <option value="1" data-uk="1 шт. — $2" data-en="1 pc. — $2">1 шт. — $2</option>
+                  <option value="3" data-uk="3 шт. — $6" data-en="3 pcs. — $6">3 шт. — $6</option>
+                  <option value="5" data-uk="5 шт. — $10" data-en="5 pcs. — $10">5 шт. — $10</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="summary-box">
+              <div>
+                <span data-uk="Сума до оплати" data-en="Total">Сума до оплати</span>
+                <strong id="totalPrice">$2</strong>
+              </div>
+              <div>
+                <span data-uk="Спосіб оплати" data-en="Payment method">Спосіб оплати</span>
+                <strong>WayForPay · Apple Pay · Google Pay</strong>
+              </div>
+            </div>
+
+            <label class="checkbox">
+              <input type="checkbox" id="agreeCheck" required />
+              <span data-uk="Я погоджуюсь з <a href="/docs/umovy.pdf" target="_blank" style="color:var(--accent);text-decoration:underline">умовами акції</a>, <a href="/docs/oferta.pdf" target="_blank" style="color:var(--accent);text-decoration:underline">публічною офертою</a> та <a href="/docs/privacy.pdf" target="_blank" style="color:var(--accent);text-decoration:underline">політикою конфіденційності</a>" data-en="I agree with the <a href="/docs/umovy.pdf" target="_blank" style="color:var(--accent);text-decoration:underline">promo terms</a>, <a href="/docs/oferta.pdf" target="_blank" style="color:var(--accent);text-decoration:underline">public offer</a> and <a href="/docs/privacy.pdf" target="_blank" style="color:var(--accent);text-decoration:underline">privacy policy</a>">Я погоджуюсь з <a href="/docs/umovy.pdf" target="_blank" style="color:var(--accent);text-decoration:underline">умовами акції</a>, <a href="/docs/oferta.pdf" target="_blank" style="color:var(--accent);text-decoration:underline">публічною офертою</a> та <a href="/docs/privacy.pdf" target="_blank" style="color:var(--accent);text-decoration:underline">політикою конфіденційності</a></span>
+            </label>
+
+            <div class="order-form__actions">
+              <button type="submit" class="btn btn--primary btn--lg" data-uk="💳 Оплатити та отримати номер замовлення" data-en="💳 Pay and get your order number">💳 Оплатити та отримати номер замовлення</button>
+
+            </div>
+
+            <p class="form-note">
+              🔒 <span data-uk="Безпечна оплата через WayForPay · SSL шифрування" data-en="Secure payment via WayForPay · SSL encryption">Безпечна оплата через WayForPay · SSL шифрування</span>
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== ПОКУПЦІ ====== -->
+    <section class="section" id="participants">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="section__eyebrow" data-uk="Прозорість" data-en="Transparency">Прозорість</span>
+          <h2 class="section__title" data-uk="Відкритий список покупців" data-en="Open buyer list">Відкритий список покупців</h2>
+          <p class="section__text" data-uk="Кожен покупець може перевірити свій номер замовлення. Список оновлюється в реальному часі." data-en="Any buyer can verify their order number. List updated in real time.">Кожен покупець може перевірити свій номер замовлення. Список оновлюється в реальному часі.</p>
+        </div>
+
+        <div class="stats-row reveal">
+          <div class="stat-card"><span class="stat-num" id="statTotal">0</span><span class="stat-lbl" data-uk="Покупців" data-en="Buyers">Покупців</span></div>
+          <div class="stat-card"><span class="stat-num" id="statTickets">0</span><span class="stat-lbl" data-uk="Квитків" data-en="Tickets">Замовлень</span></div>
+
+        </div>
+
+        <div class="table-search reveal">
+          <input type="text" id="searchInput" placeholder="🔍 Знайти за ім'ям або номером..." />
+        </div>
+
+        <div class="table-wrap reveal">
+          <table>
+            <thead>
+              <tr>
+                <th data-uk="Номер замовлення" data-en="Order #">Номер замовлення</th>
+                <th data-uk="Ім'я" data-en="Name">Ім'я</th>
+                <th data-uk="Телефон" data-en="Phone">Телефон</th>
+                <th data-uk="Місто" data-en="City">Місто</th>
+                <th data-uk="Кількість" data-en="Qty">Кількість</th>
+                <th data-uk="Дата" data-en="Date">Дата</th>
+              </tr>
+            </thead>
+            <tbody id="participantsTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== FAQ ====== -->
+    <section class="section section--dark" id="faq">
+      <div class="container faq-wrap">
+        <div class="reveal">
+          <span class="section__eyebrow">FAQ</span>
+          <h2 class="section__title" data-uk="Часті запитання" data-en="Frequently Asked Questions">Часті запитання</h2>
+        </div>
+        <div class="faq-list" id="faqList"></div>
+      </div>
+    </section>
+
+    <!-- ====== ФІНАЛЬНИЙ CTA ====== -->
+    <section class="final-cta">
+      <div class="final-cta__bg">
+        <img src="assets/hero-rear.png" alt="" />
+        <div class="final-cta__overlay"></div>
+      </div>
+      <div class="container final-cta__content reveal">
+        <h2 data-uk="Твій подарунок вже чекає" data-en="Your gift is waiting">Твій подарунок вже чекає</h2>
+        <p data-uk="За $2 — реальна можливість отримати BMW M760Li  як подарунок від компанії" data-en="For $2 — a real chance to receive a BMW M760Li  as a gift from our company">За $2 — реальна можливість отримати BMW M760Li  як подарунок від компанії</p>
+        <a href="#order" class="btn btn--primary btn--lg" data-uk="🛒 Замовити зараз" data-en="🛒 Order Now">🛒 Замовити зараз</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+
+        <p data-uk="Офіційний акція BMW M760Li" data-en="Official BMW M760Li Promo">Офіційний акція BMW M760Li</p>
+      </div>
+      <div class="footer__links">
+        <a href="#about" data-uk="Про акцію" data-en="About">Про акцію</a>
+        <a href="#how" data-uk="Як це працює" data-en="How it works">Як це працює</a>
+        <a href="#participants" data-uk="Покупці" data-en="Buyers">Покупці</a>
+        <a href="#faq" data-uk="FAQ" data-en="FAQ">FAQ</a>
+      </div>
+      <div class="footer__links">
+        <a href="/docs/oferta.pdf" target="_blank">Публічна оферта</a>
+        <a href="/docs/umovy.pdf" target="_blank">Умови акції</a>
+        <a href="/docs/privacy.pdf" target="_blank">Політика конфіденційності</a>
+      </div>
+      <p class="footer__copy">© 2026 AI Agency · <span data-uk="Всі права захищені" data-en="All rights reserved">Всі права захищені</span></p>
+    </div>
+  </footer>
+
+  <!-- ====== MODAL — Успішна участь ====== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <button class="modal__close" id="modalClose">✕</button>
+      <div class="modal__body">
+        <div class="modal__icon">🎉</div>
+        <h2 data-uk="Вітаємо! Замовлення оформлено!" data-en="Congratulations! Order confirmed!">Вітаємо! Замовлення оформлено!</h2>
+        <p data-uk="Твій унікальний номер замовлення:" data-en="Your unique order number:">Твій унікальний номер замовлення:</p>
+        <div class="ticket-card">
+          <div class="ticket-top">BMW M760Li АКЦІЯ</div>
+          <div class="ticket-number" id="modalTicketNum">A-00000</div>
+          <div class="ticket-name" id="modalTicketName">Покупець</div>
+          <div class="ticket-brand">AI Agency</div>
+        </div>
+        <p class="modal__hint" data-uk="📸 Зроби скріншот і збережи свій номер замовлення!" data-en="📸 Screenshot and save your order number!">📸 Зроби скріншот і збережи свій номер замовлення!</p>
+        <button class="btn btn--ghost" id="modalShareBtn" data-uk="📤 Поділитись" data-en="📤 Share">📤 Поділитись</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== TOAST ====== -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js?v=4"></script>
+</body>
+</html>

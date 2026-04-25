@@ -42,7 +42,7 @@ const CONFIG = {
   SITE_URL: 'https://bmwgiveaway.online',
   BRAND: 'AI Agency',
   PRIZE: 'BMW M760Li',
-  SHEETS_URL: 'https://script.google.com/macros/s/AKfycbxEqYpaSInF4GgaIuSttzodU-ZWYKwLHKCyzTXJhjmbrW3fOOg4WZ4gE_MMojLtyK6p/exec',,
+  SHEETS_URL: 'https://script.google.com/macros/s/AKfycbxEqYpaSInF4GgaIuSttzodU-ZWYKwLHKCyzTXJhjmbrW3fOOg4WZ4gE_MMojLtyK6p/exec',
   TELEGRAM_URL: 'PASTE_YOUR_TELEGRAM_ENDPOINT_HERE',
   EMAIL_URL: 'PASTE_YOUR_EMAIL_ENDPOINT_HERE',
   STORAGE_KEY: 'bmwPromoV2',

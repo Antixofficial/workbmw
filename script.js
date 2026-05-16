@@ -264,7 +264,7 @@ groups[seen[key]].createdAt = p.createdAt;
 }
 } else {
 seen[key] = groups.length;
-groups.push({ …p, numbers: [p.number] });
+groups.push({ ...p, numbers: [p.number] });
 }
 });
 
@@ -482,7 +482,7 @@ amount:    (Number(p.amount) / tickets).toFixed(2),
 createdAt,
 };
 saveParticipant(participant);
-sendToWebhooks({ …participant, phone: p.phone || ‘’ });
+sendToWebhooks({ ...participant, phone: p.phone || '' });
 });
 
 updateStats();

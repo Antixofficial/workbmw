@@ -32,7 +32,7 @@ btn.classList.add(‘visible’);
 ‘use strict’;
 
 /* =============================================
-⚙️ КОНФІГУРАЦІЯ — редагуй тут
+⚙️ КОНФІГУРАЦІЯ – редагуй тут
 ============================================= */
 const CONFIG = {
 TICKET_PRICE: 2,
@@ -79,7 +79,7 @@ applyLang(lang === ‘uk’ ? ‘en’ : ‘uk’);
 });
 
 /* =============================================
-📱 MOBILE BURGER MENU — тільки index.html
+📱 MOBILE BURGER MENU – тільки index.html
 ============================================= */
 const burgerBtn = document.getElementById(‘burgerBtn’);
 const mobileNav = document.getElementById(‘mobileNav’);
@@ -281,8 +281,8 @@ const deleteBtn = isAdmin
 ? p.numbers.map(n => `<button class="delete-btn" onclick="handleDelete('${esc(n)}')" title="${esc(n)}">🗑</button>`).join(’ ’)
 : ‘’;
 
-```
 return `<tr>
+
   <td style="padding:12px 16px;vertical-align:top">
     <div style="flex:1;min-width:0">
       <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
@@ -291,12 +291,11 @@ return `<tr>
         <span style="font-size:12px;color:var(--muted);margin-left:auto">${esc(p.createdAt)}</span>
         ${deleteBtn}
       </div>
-      <div style="font-size:12px;color:var(--muted);margin-bottom:8px">${esc(p.phone)} · ${esc(p.city || '—')}</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:8px">${esc(p.phone)} · ${esc(p.city || '--')}</div>
       <div style="display:flex;flex-wrap:wrap;gap:4px">${numbersHtml}</div>
     </div>
   </td>
 </tr>`;
-```
 
 }).join(’’);
 }
@@ -306,7 +305,7 @@ renderTable(e.target.value);
 });
 
 /* =============================================
-📦 ПАКЕТИ — кнопки
+📦 ПАКЕТИ – кнопки
 ============================================= */
 function initPackageButtons() {
 document.querySelectorAll(’.package-btn’).forEach(btn => {
@@ -388,7 +387,7 @@ return valid;
 }
 
 /* =============================================
-🎫 ФОРМА — ОБРОБКА
+🎫 ФОРМА – ОБРОБКА
 ============================================= */
 function initForm() {
 const orderIdInput = document.getElementById(‘orderId’);
@@ -427,8 +426,8 @@ const pendingData = {
 name:      formData.get(‘name’),
 phone:     formData.get(‘phone’),
 email:     formData.get(‘email’),
-city:      document.getElementById(‘npCity’)?.value?.trim() || ‘—’,
-warehouse: document.getElementById(‘npWarehouse’)?.value?.trim() || ‘—’,
+city:      document.getElementById(‘npCity’)?.value?.trim() || ‘–’,
+warehouse: document.getElementById(‘npWarehouse’)?.value?.trim() || ‘–’,
 tickets,
 amount,
 orderId,
@@ -449,7 +448,7 @@ const successUrl = ‘https://bmwgiveaway.online/success.html?d=’ + encodeURIC
 // Відкриваємо WayForPay з кастомним return URL
 const baseLink = WFP_LINKS[tickets] || WFP_LINKS[1];
 
-// Якщо WayForPay підтримує параметр approved_url — додаємо
+// Якщо WayForPay підтримує параметр approved_url – додаємо
 // Інакше просто переходимо на посилання (дані є в localStorage)
 await new Promise(resolve => setTimeout(resolve, 150));
 window.location.href = baseLink;
@@ -504,8 +503,8 @@ orderId: formData.get(‘orderId’),
 name: formData.get(‘name’)?.trim(),
 phone: maskPhone(formData.get(‘phone’)?.trim() || ‘’),
 email: formData.get(‘email’)?.trim(),
-city: document.getElementById(‘npCity’)?.value?.trim() || ‘—’,
-warehouse: document.getElementById(‘npWarehouse’)?.value?.trim() || ‘—’,
+city: document.getElementById(‘npCity’)?.value?.trim() || ‘–’,
+warehouse: document.getElementById(‘npWarehouse’)?.value?.trim() || ‘–’,
 tickets,
 amount: PRICE_MAP[tickets] || tickets * CONFIG.TICKET_PRICE,
 createdAt: fmtDate(),
@@ -601,18 +600,18 @@ uk: [
 { q: ‘Як я отримую номер замовлення?’, a: ‘Після успішної оплати номер генерується автоматично та показується на сайті. Зберігається в публічному списку покупців.’ },
 { q: ‘Чи можна оплатити Apple Pay / Google Pay?’, a: ‘Так, якщо ці методи активовані у WayForPay та підтримуються вашим пристроєм.’ },
 { q: ‘Скільки ароматизаторів можна замовити?’, a: ‘Від 1 до 10 ароматизаторів за одну покупку. Кожен ароматизатор = 1 унікальний номер замовлення.’ },
-{ q: ‘Коли буде відправлено ароматизатор?’, a: ‘Відправка відбувається протягом 1–10 днів після оплати на вказане відділення Нової Пошти.’ },
+{ q: ‘Коли буде відправлено ароматизатор?’, a: ‘Відправка відбувається протягом 1-10 днів після оплати на вказане відділення Нової Пошти.’ },
 { q: ‘Коли буде оголошено обраного покупця?’, a: ‘Дата оголошення буде опублікована в наших соціальних мережах. Стежте за оновленнями!’ },
-{ q: ‘Як повернути кошти?’, a: ‘Якщо ароматизатор не відправлено протягом 10 днів — пишіть нам в Instagram @nedilsky_v. Повернення протягом 3–5 робочих днів.’ },
+{ q: ‘Як повернути кошти?’, a: ‘Якщо ароматизатор не відправлено протягом 10 днів – пишіть нам в Instagram @nedilsky_v. Повернення протягом 3-5 робочих днів.’ },
 { q: ‘Де зберігаються дані покупців?’, a: ‘Дані покупців зберігаються в захищеній базі даних відповідно до політики конфіденційності. Продавець: ФОП Барсегян Антон Айкович, РНОКПП 3664908931.’ },
 ],
 en: [
 { q: ‘How do I get my order number?’, a: ‘After successful payment, your number is generated automatically and shown on the site. It is saved in the public buyer list.’ },
 { q: ‘Can I pay with Apple Pay / Google Pay?’, a: ‘Yes, if these methods are enabled in WayForPay and supported by your device.’ },
 { q: ‘How many fresheners can I order?’, a: ‘From 1 to 10 fresheners per purchase. Each freshener = 1 unique order number.’ },
-{ q: ‘When will the freshener be shipped?’, a: ‘Shipping occurs within 1–10 days after payment to your chosen Nova Poshta branch.’ },
+{ q: ‘When will the freshener be shipped?’, a: ‘Shipping occurs within 1-10 days after payment to your chosen Nova Poshta branch.’ },
 { q: ‘When will the selected buyer be announced?’, a: ‘The announcement date will be published on our social media. Stay tuned!’ },
-{ q: ‘How do I get a refund?’, a: ‘If the freshener is not shipped within 10 days — contact us on Instagram @nedilsky_v. Refunds within 3–5 business days.’ },
+{ q: ‘How do I get a refund?’, a: ‘If the freshener is not shipped within 10 days – contact us on Instagram @nedilsky_v. Refunds within 3-5 business days.’ },
 { q: ‘Where is customer data stored?’, a: ‘Customer data is stored in a secure database in accordance with our privacy policy. Seller: FOB Barsehian Anton Aikovych, RNOKPP 3664908931.’ },
 ],
 };
@@ -654,15 +653,15 @@ return String(str || ‘’)
 .replace(/&/g, ‘&’)
 .replace(/</g, ‘<’)
 .replace(/>/g, ‘>’)
-.replace(/”/g, ‘"’);
+.replace(/”/g, ‘”’);
 }
 
 /* =============================================
-🚀 INIT — тільки для index.html
+🚀 INIT – тільки для index.html
 ============================================= */
 
 /* =============================================
-🚚 НОВА ПОШТА — автопідказка міст та відділень
+🚚 НОВА ПОШТА – автопідказка міст та відділень
 ============================================= */
 const NP_KEY = ‘d6c5442b96b8aa4921b6c1a66c55f208’;
 const NP_API = ‘https://api.novaposhta.ua/v2.0/json/’;
@@ -722,31 +721,29 @@ whInput.value = ‘’;
 whRef.value = ‘’;
 whList.classList.remove(‘open’);
 
-```
 clearTimeout(cityTimer);
-if (q.length < 2) { cityList.classList.remove('open'); return; }
+if (q.length < 2) { cityList.classList.remove(‘open’); return; }
 
-cityList.innerHTML = '<li class="np-loading">Пошук...</li>';
-cityList.classList.add('open');
+cityList.innerHTML = ‘<li class="np-loading">Пошук…</li>’;
+cityList.classList.add(‘open’);
 
 cityTimer = setTimeout(async () => {
-  const data = await npRequest('Address', 'searchSettlements', {
-    CityName: q, Limit: 10
-  });
-  const addresses = data[0]?.Addresses || [];
-  const items = addresses.map(a => ({
-    label: `${a.Present}`,
-    ref: a.DeliveryCity || a.Ref,
-    name: a.MainDescription
-  }));
-  showDropdown(cityList, items, (item) => {
-    cityInput.value = item.label;
-    cityRef.value = item.ref;
-    // Завантажуємо відділення
-    loadWarehouses(item.ref);
-  });
+const data = await npRequest(‘Address’, ‘searchSettlements’, {
+CityName: q, Limit: 10
+});
+const addresses = data[0]?.Addresses || [];
+const items = addresses.map(a => ({
+label: `${a.Present}`,
+ref: a.DeliveryCity || a.Ref,
+name: a.MainDescription
+}));
+showDropdown(cityList, items, (item) => {
+cityInput.value = item.label;
+cityRef.value = item.ref;
+// Завантажуємо відділення
+loadWarehouses(item.ref);
+});
 }, 400);
-```
 
 });
 
@@ -760,28 +757,26 @@ whInput.value = ‘’;
 whInput.placeholder = ‘Завантаження…’;
 whRef.value = ‘’;
 
-```
-const data = await npRequest('AddressGeneral', 'getWarehouses', {
-  CityRef: ref, Limit: 100
+const data = await npRequest(‘AddressGeneral’, ‘getWarehouses’, {
+CityRef: ref, Limit: 100
 });
 const items = data.map(w => ({ label: w.Description, ref: w.Ref }));
-whInput.placeholder = 'Введіть номер відділення...';
+whInput.placeholder = ‘Введіть номер відділення…’;
 
-whInput.addEventListener('input', () => {
-  const q = whInput.value.toLowerCase();
-  whRef.value = '';
-  const filtered = items.filter(i => i.label.toLowerCase().includes(q)).slice(0, 15);
-  if (q.length < 1) { whList.classList.remove('open'); return; }
-  showDropdown(whList, filtered, (item) => {
-    whInput.value = item.label;
-    whRef.value = item.ref;
-  });
+whInput.addEventListener(‘input’, () => {
+const q = whInput.value.toLowerCase();
+whRef.value = ‘’;
+const filtered = items.filter(i => i.label.toLowerCase().includes(q)).slice(0, 15);
+if (q.length < 1) { whList.classList.remove(‘open’); return; }
+showDropdown(whList, filtered, (item) => {
+whInput.value = item.label;
+whRef.value = item.ref;
+});
 });
 
-whInput.addEventListener('blur', () => {
-  setTimeout(() => whList.classList.remove('open'), 200);
+whInput.addEventListener(‘blur’, () => {
+setTimeout(() => whList.classList.remove(‘open’), 200);
 });
-```
 
 }
 }
@@ -810,12 +805,12 @@ overlay.classList.remove(‘open’);
 document.body.style.overflow = ‘’;
 }
 
-// Desktop — при русі миші до верхнього краю
+// Desktop – при русі миші до верхнього краю
 document.addEventListener(‘mouseleave’, (e) => {
 if (e.clientY <= 10) showExit();
 });
 
-// Мобільний — при скролі вгору швидко
+// Мобільний – при скролі вгору швидко
 let lastScroll = 0;
 window.addEventListener(‘scroll’, () => {
 const current = window.scrollY;
@@ -917,9 +912,9 @@ document.body.appendChild(badge);
 // ✅ Завантаження даних з Google Sheets
 
 function formatDate(dateStr) {
-if (!dateStr) return ‘—’;
+if (!dateStr) return ‘–’;
 try {
-// Якщо вже у форматі “2026-04-25 16:58” — повертаємо як є
+// Якщо вже у форматі “2026-04-25 16:58” – повертаємо як є
 if (/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}/.test(String(dateStr))) return String(dateStr).slice(0, 16);
 const d = new Date(dateStr);
 if (isNaN(d)) return String(dateStr);
@@ -935,32 +930,30 @@ const res = await fetch(CONFIG.SHEETS_URL + ‘?t=’ + Date.now());
 const data = await res.json();
 if (!data.rows || !data.rows.length) return;
 
-```
 // Фільтруємо порожні рядки
 const validRows = data.rows.filter(r => {
-  const num = String(r['Номер замовлення'] || '').trim();
-  const name = String(r["Ім'я"] || '').trim();
-  return num.length > 0 || name.length > 0;
+const num = String(r[‘Номер замовлення’] || ‘’).trim();
+const name = String(r[“Ім’я”] || ‘’).trim();
+return num.length > 0 || name.length > 0;
 });
 if (!validRows.length) return;
 
 const formatted = validRows.map(r => ({
-  number:    r['Номер замовлення'] || '',
-  name:      r["Ім'я"] || '',
-  phone:     maskPhone(String(r['Телефон'] || '').replace(/^'/, '')),
-  email:     r['Email'] || '',
-  city:      r['Місто'] || '—',
-  warehouse: r['Відділення НП'] || '—',
-  tickets:   r['Кількість'] || 1,
-  amount:    r['Сума (UAH)'] || r['Сума ($)'] || 89,
-  createdAt: formatDate(r['Дата'] || ''),
-  status:    r['Статус'] || '',
+number:    r[‘Номер замовлення’] || ‘’,
+name:      r[“Ім’я”] || ‘’,
+phone:     maskPhone(String(r[‘Телефон’] || ‘’).replace(/^’/, ‘’)),
+email:     r[‘Email’] || ‘’,
+city:      r[‘Місто’] || ‘–’,
+warehouse: r[‘Відділення НП’] || ‘–’,
+tickets:   r[‘Кількість’] || 1,
+amount:    r[‘Сума (UAH)’] || r[‘Сума ($)’] || 89,
+createdAt: formatDate(r[‘Дата’] || ‘’),
+status:    r[‘Статус’] || ‘’,
 }));
 
 localStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(formatted));
 updateStats();
 renderTable();
-```
 
 } catch(e) {
 console.log(‘Sheets load error:’, e);
@@ -986,10 +979,10 @@ body: JSON.stringify({ action: ‘delete’, number }),
 function initCountdown() {
 // Всі подарунки з датами
 const gifts = [
-{ id: ‘countdown1’, date: ‘2026-05-25T00:00:00’, label: ‘⏳ До подарунку #4 — 10 000 грн’, emoji: ‘💵’ },
-{ id: ‘countdown2’, date: ‘2026-06-25T00:00:00’, label: ‘⏳ До подарунку #3 — 20 000 грн’, emoji: ‘💵’ },
-{ id: ‘countdown3’, date: ‘2026-07-25T00:00:00’, label: ‘⏳ До подарунку #2 — iPhone 17 Pro’, emoji: ‘📱’ },
-{ id: ‘countdown4’, date: ‘2026-08-25T00:00:00’, label: ‘⏳ До подарунку #1 — BMW M760Li’, emoji: ‘🏆’ },
+{ id: ‘countdown1’, date: ‘2026-05-25T00:00:00’, label: ‘⏳ До подарунку #4 – 10 000 грн’, emoji: ‘💵’ },
+{ id: ‘countdown2’, date: ‘2026-06-25T00:00:00’, label: ‘⏳ До подарунку #3 – 20 000 грн’, emoji: ‘💵’ },
+{ id: ‘countdown3’, date: ‘2026-07-25T00:00:00’, label: ‘⏳ До подарунку #2 – iPhone 17 Pro’, emoji: ‘📱’ },
+{ id: ‘countdown4’, date: ‘2026-08-25T00:00:00’, label: ‘⏳ До подарунку #1 – BMW M760Li’, emoji: ‘🏆’ },
 ];
 
 function getTimeLeft(dateStr) {
@@ -1008,40 +1001,39 @@ function pad(n) { return String(n).padStart(2, ‘0’); }
 function update() {
 const now = new Date();
 
-```
 // Малі таймери в картках таймлайну
 gifts.forEach(({ id, date }) => {
-  const el = document.getElementById(id);
-  if (!el) return;
-  const t = getTimeLeft(date);
-  if (!t) { el.innerHTML = '<span class="countdown-done">🎉 Оголошення сьогодні!</span>'; return; }
-  el.innerHTML = `<div class="countdown-boxes">
-    <div class="countdown-box"><span class="countdown-num">${pad(t.d)}</span><span class="countdown-lbl">дн</span></div>
-    <div class="countdown-sep">:</div>
-    <div class="countdown-box"><span class="countdown-num">${pad(t.h)}</span><span class="countdown-lbl">год</span></div>
-    <div class="countdown-sep">:</div>
-    <div class="countdown-box"><span class="countdown-num">${pad(t.m)}</span><span class="countdown-lbl">хв</span></div>
-    <div class="countdown-sep">:</div>
-    <div class="countdown-box"><span class="countdown-num">${pad(t.s)}</span><span class="countdown-lbl">сек</span></div>
+const el = document.getElementById(id);
+if (!el) return;
+const t = getTimeLeft(date);
+if (!t) { el.innerHTML = ‘<span class="countdown-done">🎉 Оголошення сьогодні!</span>’; return; }
+el.innerHTML = `<div class="countdown-boxes">
+<div class="countdown-box"><span class="countdown-num">${pad(t.d)}</span><span class="countdown-lbl">дн</span></div>
+<div class="countdown-sep">:</div>
+<div class="countdown-box"><span class="countdown-num">${pad(t.h)}</span><span class="countdown-lbl">год</span></div>
+<div class="countdown-sep">:</div>
+<div class="countdown-box"><span class="countdown-num">${pad(t.m)}</span><span class="countdown-lbl">хв</span></div>
+<div class="countdown-sep">:</div>
+<div class="countdown-box"><span class="countdown-num">${pad(t.s)}</span><span class="countdown-lbl">сек</span></div>
+
   </div>`;
 });
 
-// Великий таймер в hero — знаходимо найближчий майбутній подарунок
+// Великий таймер в hero – знаходимо найближчий майбутній подарунок
 // Hero таймер завжди показує до BMW 25 серпня
-const heroLabel = document.getElementById('heroCountdownLabel');
-if (heroLabel) heroLabel.textContent = '🏆 До завершення акції BMW M760Li — 25 серпня 2026';
-const bmwDiff = new Date('2026-08-25T00:00:00') - now;
+const heroLabel = document.getElementById(‘heroCountdownLabel’);
+if (heroLabel) heroLabel.textContent = ‘🏆 До завершення акції BMW M760Li – 25 серпня 2026’;
+const bmwDiff = new Date(‘2026-08-25T00:00:00’) - now;
 if (bmwDiff > 0) {
-  let rem = bmwDiff;
-  const bd = Math.floor(rem/86400000); rem%=86400000;
-  const bh = Math.floor(rem/3600000); rem%=3600000;
-  const bm = Math.floor(rem/60000); rem%=60000;
-  const bs = Math.floor(rem/1000);
-  [['hcd-d',bd],['hcd-h',bh],['hcd-m',bm],['hcd-s',bs]].forEach(([id,v])=>{
-    const el=document.getElementById(id); if(el) el.textContent=pad(v);
-  });
+let rem = bmwDiff;
+const bd = Math.floor(rem/86400000); rem%=86400000;
+const bh = Math.floor(rem/3600000); rem%=3600000;
+const bm = Math.floor(rem/60000); rem%=60000;
+const bs = Math.floor(rem/1000);
+[[‘hcd-d’,bd],[‘hcd-h’,bh],[‘hcd-m’,bm],[‘hcd-s’,bs]].forEach(([id,v])=>{
+const el=document.getElementById(id); if(el) el.textContent=pad(v);
+});
 }
-```
 
 }
 
@@ -1089,7 +1081,7 @@ return localStorage.getItem(‘refCode’) || ‘’;
 }
 
 document.addEventListener(‘DOMContentLoaded’, () => {
-// Якщо це адмін сторінка — script.js надає тільки CONFIG, showToast, esc, fmtDate
+// Якщо це адмін сторінка – script.js надає тільки CONFIG, showToast, esc, fmtDate
 // Решта ініціалізується в admin.html inline script
 if (IS_ADMIN) return;
 

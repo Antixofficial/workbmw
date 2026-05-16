@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Замовлення — 3 ароматизатори</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #fff;
+      color: #000;
+      font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+      padding: 24px 20px 60px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+```
+.alert {
+  font-size: 17px;
+  line-height: 1.4;
+  margin-bottom: 28px;
+}
+.alert strong { color: #c00; }
+
+hr {
+  border: none;
+  border-top: 1px solid #000;
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 17px;
+  font-weight: 400;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.field {
+  margin-bottom: 24px;
+}
+.field label {
+  display: block;
+  font-size: 15px;
+  color: #000;
+  margin-bottom: 8px;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #000;
+  padding: 8px 0;
+  font-size: 16px;
+  font-family: inherit;
+  outline: none;
+  background: transparent;
+  color: #000;
+  border-radius: 0;
+  -webkit-appearance: none;
+}
+.field textarea {
+  resize: none;
+  height: 80px;
+  line-height: 1.5;
+}
+
+.btn-send {
+  width: 100%;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 18px;
+  font-size: 17px;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 16px;
+  -webkit-appearance: none;
+}
+
+.btn-pay {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+  background: #3a7d44;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 16px;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 400;
+  letter-spacing: .15em;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+/* Success */
+.success { display: none; text-align: center; padding: 60px 0; }
+.success.show { display: block; }
+.success h2 { font-size: 22px; margin-bottom: 12px; }
+.success p { color: #555; font-size: 15px; margin-bottom: 28px; }
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(80px);
+  background: #333;
+  color: #fff;
+  border-radius: 50px;
+  padding: 12px 24px;
+  font-size: 14px;
+  transition: transform .3s;
+  z-index: 999;
+  white-space: nowrap;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+
+  </style>
+</head>
+<body>
+
+  <div id="formWrap">
+    <p class="alert"><strong>Зверніть увагу</strong> - 3 ароматизатори це ваш 3 унікальний код на розіграш авто</p>
+
+
+<hr>
+
+<p class="section-title">Інформація про вас</p>
+
+<div class="field">
+  <label>Ім'я *</label>
+  <input type="text" id="fname" />
+</div>
+
+<div class="field">
+  <label>Прізвище</label>
+  <input type="text" id="flastname" />
+</div>
+
+<div class="field">
+  <label>Ел. адреса *</label>
+  <input type="email" id="femail" />
+</div>
+
+<div class="field">
+  <label>Вкажіть адресу доставки, та ваш контактний номер телефону *</label>
+  <textarea id="fdelivery"></textarea>
+</div>
+
+<button class="btn-send" onclick="sendForm()">Надіслати</button>
+<a href="https://ibanoplata.com/iban-qr/42fc90942f6541d88d3ccaa0b8fc32ab" class="btn-pay">О П Л А Т И Т И</a>
+
+
+  </div>
+
+  <div class="success" id="successScreen">
+    <h2>✅ Дані надіслано!</h2>
+    <p>Ваші дані отримано.<br>Тепер перейдіть до оплати.</p>
+    <a href="https://ibanoplata.com/iban-qr/42fc90942f6541d88d3ccaa0b8fc32ab" class="btn-pay" style="width:70%;display:block;margin:0 auto">О П Л А Т И Т И</a>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3000);
+    }
+
+    async function sendForm() {
+      const name = document.getElementById('fname').value.trim();
+      const lastname = document.getElementById('flastname').value.trim();
+      const email = document.getElementById('femail').value.trim();
+      const delivery = document.getElementById('fdelivery').value.trim();
+
+      if (!name) { showToast("Введіть ім'я"); return; }
+      if (!email || !email.includes('@')) { showToast('Введіть правильний email'); return; }
+      if (!delivery) { showToast('Вкажіть адресу та телефон'); return; }
+
+      const fd = new FormData();
+      fd.append('_subject', 'Нове замовлення — 3 ароматизатори BMW M760Li');
+      fd.append("Im'ya", name + ' ' + lastname);
+      fd.append('Email', email);
+      fd.append('Dostavka', delivery);
+      fd.append('Paket', '3 aromatyzatory — 267 UAH');
+      fd.append('_captcha', 'false');
+      fd.append('_template', 'table');
+
+      try {
+        await fetch('https://formsubmit.co/Nedilskystudio@gmail.com', {
+          method: 'POST',
+          body: fd
+        });
+      } catch(e) {}
+
+      document.getElementById('formWrap').style.display = 'none';
+      document.getElementById('successScreen').classList.add('show');
+    }
+  </script>
+
+</body>
+</html>
